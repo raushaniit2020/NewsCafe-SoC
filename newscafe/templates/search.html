@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsCafe</title>
+</head>
+<body>
+    {% for element in data_articles  %}
+        <div class="card", id="card">
+            <img src="{{ element.urlToImage }}" alt="Image Not Found!" width="300px" height="200px">
+            
+            <p><strong>Title:</strong> <a href="{{ element.url }}" target="_blank">{{ element.title }}</a></p>
+            <p><strong>Description:</strong> {{ element.description }}</p>
+            <p><strong>Source:</strong> {{ element.source.name }}</p>
+            <p><strong>Author:</strong> {{ element.author }}</p>
+            <small><strong>Published at</strong>: {{ element.publishedAt }}</small>
+            <p><strong>Content:</strong> {{ element.content }}</p>
+            <a href="{{ element.url }}" target="_blank">Read Full News</a>
+        </div>
+        <hr>
+        
+    {% endfor %} 
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+<!-- {% include "header.html" %} -->
+<!DOCTYPE>
+<html>
+<head>
+    
+    
+{% block title %}Home{% endblock %}
+
+    
+</head>
+<body>
+<!-- {% block content %} -->
+{% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <!-- <p><a href="{% url 'logout' %}">Log Out</a></p> -->
+    <button type="submit"><a href="{% url 'logout' %}">Log Out</a></button>
+  
+        <!-- <strong>Welcome To Our NewsCafe || Jo Aapko Rakhe Sabse Aage</strong><br> -->
+        <center>
+            <strong style="font-size:20px">
+                &#128512; &#128516; &#128525; &#128151;</strong> <h1>Welcome To Our NewsCafe || Jo Aapko Rakhe Sabse Aage</h1></strong>
+            <strong style="font-size:20px">
+                &#128512; &#128516; &#128525; &#128151;
+            </strong>
+           
+        </center><br>
+        <!-- <div>
+            
+            <td><b>Country Label:</b><br>
+            
+                <select style='align:left; width:100%;' id='country_selector' name='country_selector'>
+
+
+                    <option value="hidden selected">Select one...</option>
+                    <option value="ae">United Arab Emirates</option>
+                    <option value="ar">Argentina</option>
+                    <option value="at">Austria</option>
+                    <option value="au">Australia</option>
+                    <option value="be">Belgium</option>
+                    <option value="bg">Bulgaria</option>
+                    <option value="br">Brazil</option>
+                    <option value="ca">Canada</option>
+                    <option value="ch">Switzerland</option>
+                    <option value="cn">China</option>
+                    <option value="co">Colombia</option>
+                    <option value="cu">Cuba</option>
+                    <option value="cz">Czech Republic</option>
+                    <option value="de">Germany</option>
+                    <option value="eg">Egypt</option>
+                    <option value="fr">France</option>
+                    <option value="gb">United Kingdom</option>
+                    <option value="gr">Greece</option>
+                    <option value="hk">Hong Kong</option>
+                    <option value="hu">Hungary</option>
+                    <option value="id">Indonesia</option>
+                    <option value="ie">Ireland</option>
+                    <option value="il">Israel</option>
+                    <option value="in" selected>India</option>
+                    <option value="it">Italy</option>
+                    <option value="jp">Japan</option>
+                    <option value="kr">South Korea</option>
+                    <option value="lt">Lithuania</option>
+                    <option value="lv">Latvia</option>
+                    <option value="ma">Morocco</option>
+                    <option value="mx">Mexico</option>
+                    <option value="my">Malaysia</option>
+                    <option value="ng">Nigeria</option>
+                    <option value="nl">Netherlands</option>
+                    <option value="no">Norway</option>
+                    <option value="nz">New Zealand</option>
+                    <option value="ph">Philippines</option>
+                    <option value="pl">Poland</option>
+                    <option value="pt">Portugal</option>
+                    <option value="ro">Romania</option>
+                    <option value="rs">Serbia</option>
+                    <option value="ru">Russia</option>
+                    <option value="sa">Saudi Arabia</option>
+                    <option value="se">Sweden</option>
+                    <option value="sg">Singapore</option>
+                    <option value="si">Slovenia</option>
+                    <option value="sk">Slovakia</option>
+                    <option value="th">Thailand</option>
+                    <option value="tr">Turkey</option>
+                    <option value="tw">Taiwan</option>
+                    <option value="ua">Ukraine</option>
+                    <option value="us">United States</option>
+                    <option value="ve">Venezuela</option>
+                    <option value="za">South Africa</option>
+                </select>
+            </td>
+
+        </div> -->
+        
+        <header>
+            <nav class="navigationbar">
+    
+                <ul>
+                    <li><a href="#" target="_blank">General</a></li>
+                    <li><a href="#" target="_blank">Business</a></li>
+                    <li><a href="#" target="_blank">Entertainment</a></li>
+                    <li><a href="#" target="_blank">Science</a></li>
+                    <li><a href="#" target="_blank">Technology</a></li>
+                    <li><a href="#" target="_blank">Entertainment</a></li>
+                    <li><a href="#" target="_blank">Sports</a></li>
+                    <li><a href="#" target="_blank">Health</a></li>
+
+       
+                   
+                    
+                </ul>
+    
+            </nav>
+        </header>
+    <form action="{% url 'search' %}" method="GET">
+        <div class="search" id="search">
+            <input type="text" name="search" placeholder="Search News Of Your Interest, General News, Business, Entertainment, Science, Technology, Sports, Health" style="width: 1110px; height: 33px">
+            <button type="submit" name="search" value="search" style="width: 70px; height: 40px">Search</button>
+
+
+        </div>
+    </form>
+    <br>
+    <br>
+    <hr>
+    <!-- <p> {{ data_articles }} </p> -->
+    {% for element in data_articles  %}
+        <div class="card", id="card">
+        <img src="{{ element.urlToImage }}" alt="Image Not Found!" width="300px" height="200px">
+        
+        <p><strong>Title:</strong> <a href="{{ element.url }}" target="_blank">{{ element.title }}</a></p>
+        <p><strong>Description:</strong> {{ element.description }}</p>
+        <p><strong>Source:</strong> {{ element.source.name }}</p>
+        <p><strong>Author:</strong> {{ element.author }}</p>
+        <small><strong>Published at</strong>: {{ element.publishedAt }}</small>
+        <p><strong>Content:</strong> {{ element.content }}</p>
+        <a href="{{ element.url }}" target="_blank">Read Full News</a>
+        </div>
+        <hr>
+        
+    {% endfor %} 
+    <!-- {% for author, title, description, source, date, url in news  %}
+      <p>Source:{{ source }}</p>
+      <p>Title:{{ title }}</p>
+      <p>Description:{{ description }}</p>
+      <p>Author:{{ author }}</p>
+      <p>Date:{{ date }}</p>
+      <p>Url:{{ url }}</p>
+      
+    {% endfor %} -->
+{% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+</body>
+</html>
+<!-- {% endblock %} -->

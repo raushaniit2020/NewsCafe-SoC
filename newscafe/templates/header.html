@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        .navigationbar {
+            background-color: red;
+            border-radius: 30px 30px;
+        }
+        
+        .navigationbar ul {
+            overflow: auto;
+        }
+        
+        .navigationbar li {
+            float: left;
+            list-style: none;
+            margin: 20px 10px;
+        }
+        
+        .navigationbar li a {
+            padding: 10px 10px;
+            text-decoration: white;
+            color: white;
+        }
+        
+        .navigationbar li a:hover {
+            background-color: rgb(33, 42, 145);
+        }
+        
+        .search {
+            padding: 18px 26px;
+        }
+        
+        .navigationbar input {
+            border: 18px black;
+            border-radius: 10px 10px;
+            padding: 4px;
+            width: 231px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navigationbar">
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">India</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">YourLocalNews</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">ScienceAndTechnology</a></li>
+                <li><a href="#">Entertainment</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Health</a></li>
+                <div class="search" id="search">
+                    <input type="text" name="search" placeholder="Search News Of Your Interest">
+
+
+                </div>
+                <!-- <div>
+                    <input type="submit">
+                </div> -->
+            </ul>
+
+        </nav>
+    </header>
+
+</body>
+
+</html>
